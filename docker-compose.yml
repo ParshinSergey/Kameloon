@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  kameleoon:
+    build: .
+    image: parshinsergey/kameleoon:1.0.4
+    container_name: java-kameleoon
+    restart: always
+    ports:
+      - 8080:8080

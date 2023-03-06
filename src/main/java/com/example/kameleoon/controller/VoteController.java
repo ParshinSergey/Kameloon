@@ -27,7 +27,10 @@ public class VoteController {
     @PostMapping(value = "/{quoteId}/votes", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Vote> createVote(@PathVariable Long quoteId, @RequestBody Vote vote){
 
-        vote.setQuote(quoteRepository.findById(quoteId).orElseThrow());
+        Quote quote = quoteRepository.findById(quoteId).orElseThrow();
+        Integer rating = quote.getRating();
+        quote.setRating(vote.isStatus() ? rating + 1 : rating - 1);
+        vote.setQuote(quoteRepository.save(quote));
         Vote savedVote = voteRepository.save(vote);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
