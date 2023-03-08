@@ -70,14 +70,6 @@ public class Quote {
         this.user = user;
     }
 
-    /*public Map<String, Boolean> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(Map<String, Boolean> votes) {
-        this.votes = votes;
-    }*/
-
     public Integer getRating() {
         return rating;
     }

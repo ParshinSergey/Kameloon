@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/quotes", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -28,14 +29,19 @@ public class VoteController {
     public ResponseEntity<Vote> createVote(@PathVariable Long quoteId, @RequestBody Vote vote){
 
         Quote quote = quoteRepository.findById(quoteId).orElseThrow();
+        Optional<Vote> oldVote = voteRepository.findByUserAndQuote(vote.getUser(), quote);
+        if (oldVote.isPresent()){
+            return ResponseEntity.of(oldVote);
+        }
+
         Integer rating = quote.getRating();
         quote.setRating(vote.isStatus() ? rating + 1 : rating - 1);
         vote.setQuote(quoteRepository.save(quote));
         Vote savedVote = voteRepository.save(vote);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/api/votes/{voteId}")
-                .buildAndExpand(savedVote.getId()).toUri();
+                .path("/api/quotes/{quoteId}")
+                .buildAndExpand(quoteId).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(savedVote);
 
