@@ -12,8 +12,4 @@ public interface QuoteRepository extends CrudRepository<Quote, Long>, PagingAndS
     List<Quote> findTop10ByOrderByRatingDesc();
     List<Quote> findTop10ByOrderByRating();
 
-
-    /*@RestResource(rel = "by-rating", path = "by-rating")
-    List<Quote> findByRatingIsGreaterThan(Integer rating);*/
-
 }
