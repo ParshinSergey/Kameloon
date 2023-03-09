@@ -48,7 +48,7 @@ public class QuoteService {
         quoteRepository.deleteById(id);
     }
 
-    public Page<Quote> findLast10(){
+    public Page<Quote> findFlop10(){
         return quoteRepository.findAll(PageRequest.of(0, 10, Sort.by("rating").descending()));
     }
 

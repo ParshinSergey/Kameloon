@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VoteRepository extends CrudRepository<Vote, Long> {
+
     Optional<Vote> findByUserAndQuote(User user, Quote quote);
 
     List<Vote> findAllByQuoteIdOrderByRegistered(Long id);

@@ -49,7 +49,6 @@ public class QuoteController {
     public void update(@PathVariable long id, @RequestBody Quote quote) {
 
         // here must be check user_id
-        quote.setId(id);
         quoteService.updateQuote(id, quote);
     }
 
@@ -60,8 +59,8 @@ public class QuoteController {
     }
 
     @GetMapping(value = "/by-rating")
-    public Page<Quote> findDown10(){
-        return quoteService.findLast10();
+    public Page<Quote> findFlop10(){
+        return quoteService.findFlop10();
     }
 
     @GetMapping(value = "/by-rating-desc")
