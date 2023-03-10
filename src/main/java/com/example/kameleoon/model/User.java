@@ -1,5 +1,6 @@
 package com.example.kameleoon.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -15,10 +16,10 @@ public class User {
     private String name;
 
     @Column(name = "email", nullable = false, unique = true)
-    //@Email
     private String email;
 
     @Column(name = "password", nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     private LocalDate registered = LocalDate.now();
@@ -66,13 +67,4 @@ public class User {
         this.registered = registered;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                // ", registered=" + registered +
-                '}';
-    }
 }

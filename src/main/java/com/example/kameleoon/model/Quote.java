@@ -1,7 +1,6 @@
 package com.example.kameleoon.model;
 
 import jakarta.persistence.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -25,10 +24,6 @@ public class Quote {
     @JoinColumn(name="user_id")
     private User user;
 
-    //@ElementCollection
-    //@CollectionTable(name="quote_votes", joinColumns = @JoinColumn(name = "quote_id"))
-    //@MapKeyColumn(name = "key")
-    //@Column(name = "message")
     @OneToMany(cascade=ALL, mappedBy="quote")
     private Set<Vote> votes;
 
@@ -78,14 +73,4 @@ public class Quote {
         this.rating = rating;
     }
 
-    @Override
-    public String toString() {
-        return "Quote{" +
-                "content='" + content + '\'' +
-                ", registered=" + registered +
-            /*    ", user=" + user +
-                ", votes=" + votes +*/
-                ", rating=" + rating +
-                '}';
-    }
 }

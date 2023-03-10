@@ -12,7 +12,6 @@ public class Vote {
 
     private LocalDate registered = LocalDate.now();
 
-    //@JoinColumn(name="user_id")
     @ManyToOne
     @Id
     private User user;

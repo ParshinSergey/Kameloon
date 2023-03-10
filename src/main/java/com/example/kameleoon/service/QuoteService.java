@@ -48,6 +48,7 @@ public class QuoteService {
         quoteRepository.deleteById(id);
     }
 
+    @Transactional
     public Page<Quote> findFlop10(){
         return quoteRepository.findAll(PageRequest.of(0, 10, Sort.by("rating").descending()));
     }
@@ -59,6 +60,7 @@ public class QuoteService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public Quote randomQuote() {
         long qty = quoteRepository.count();
         int index = (int) ThreadLocalRandom.current().nextLong(qty);
