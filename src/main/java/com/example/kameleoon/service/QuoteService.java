@@ -20,7 +20,7 @@ import static java.lang.String.format;
 @Service
 public class QuoteService {
 
-    QuoteRepository quoteRepository;
+    private final QuoteRepository quoteRepository;
 
     public QuoteService(QuoteRepository quoteRepository) {
         this.quoteRepository = quoteRepository;

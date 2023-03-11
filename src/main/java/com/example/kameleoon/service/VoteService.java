@@ -13,8 +13,8 @@ import java.util.Optional;
 @Service
 public class VoteService {
 
-    VoteRepository voteRepository;
-    QuoteRepository quoteRepository;
+    private final VoteRepository voteRepository;
+    private final QuoteRepository quoteRepository;
 
     public VoteService(VoteRepository voteRepository, QuoteRepository quoteRepository) {
         this.voteRepository = voteRepository;

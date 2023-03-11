@@ -2,6 +2,7 @@ package com.example.kameleoon.controller;
 
 import com.example.kameleoon.model.Quote;
 import com.example.kameleoon.service.QuoteService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/quotes", produces = MediaType.APPLICATION_JSON_VALUE)
+@Tag(name = "Quote Controller")
 public class QuoteController {
 
     QuoteService quoteService;
