@@ -4,8 +4,8 @@ import com.example.kameleoon.model.Quote;
 import com.example.kameleoon.model.Vote;
 import com.example.kameleoon.repository.QuoteRepository;
 import com.example.kameleoon.repository.VoteRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;

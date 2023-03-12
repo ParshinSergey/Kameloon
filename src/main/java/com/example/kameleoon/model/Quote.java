@@ -17,7 +17,6 @@ public class Quote {
 
     private String content;
 
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate registered = LocalDate.now();
 
     @ManyToOne

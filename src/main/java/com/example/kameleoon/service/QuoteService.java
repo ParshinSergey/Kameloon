@@ -2,11 +2,11 @@ package com.example.kameleoon.service;
 
 import com.example.kameleoon.model.Quote;
 import com.example.kameleoon.repository.QuoteRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Comparator;
 import java.util.List;
@@ -48,7 +48,6 @@ public class QuoteService {
         quoteRepository.deleteById(id);
     }
 
-    @Transactional
     public Page<Quote> findFlop10(){
         return quoteRepository.findAll(PageRequest.of(0, 10, Sort.by("rating").descending()));
     }

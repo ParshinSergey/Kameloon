@@ -1,13 +1,11 @@
 package com.example.kameleoon.repository;
 
 import com.example.kameleoon.model.Quote;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.ListCrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface QuoteRepository extends CrudRepository<Quote, Long>, PagingAndSortingRepository<Quote, Long> {
+public interface QuoteRepository extends JpaRepository<Quote, Long> {
 
     List<Quote> findTop10ByOrderByRatingDesc();
     List<Quote> findTop10ByOrderByRating();

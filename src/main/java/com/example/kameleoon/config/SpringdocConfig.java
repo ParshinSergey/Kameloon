@@ -7,15 +7,17 @@ import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@OpenAPIDefinition
 @Configuration
+@OpenAPIDefinition
 public class SpringdocConfig {
 
     @Bean
     public OpenAPI baseOpenAPI() {
-
         return new OpenAPI()
-                .info(new Info().title("REST API documentation").version("1.0").description("REST API documentation"));
+                .info(new Info()
+                        .title("Kameleoon REST API documentation")
+                        .version("1.0")
+                        .description("REST API documentation"));
     }
 
     @Bean
