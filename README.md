@@ -11,6 +11,7 @@ Project requirements:
 
 * Source code published on https://github.com/ParshinSergey/kameloon
 * Docker image published on https://hub.docker.com/repository/docker/parshinsergey/kameleoon/general
+* Run project with command: docker run -p 8080:8080 parshinsergey/kameleoon:1.0.4
 * Swagger link opens from http://localhost:8080/swagger-ui.html
 
 
